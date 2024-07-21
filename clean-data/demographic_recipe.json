@@ -1,0 +1,266 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "SEQN",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column SEQN using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "RIAGENDR",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column RIAGENDR using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "RIDAGEYR",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column RIDAGEYR using expression value.toNumber()"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "SEQN",
+      "RIAGENDR",
+      "RIDAGEYR",
+      "DMDBORN4",
+      "DMDEDUC3",
+      "DMDEDUC2",
+      "DMDMARTL",
+      "DMDHHSIZ",
+      "INDHHIN2"
+    ],
+    "description": "Reorder columns"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DMDBORN4",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DMDBORN4 using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DMDEDUC2",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DMDEDUC2 using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DMDEDUC3",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DMDEDUC3 using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DMDHHSIZ",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DMDHHSIZ using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DMDMARTL",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DMDMARTL using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "INDHHIN2",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column INDHHIN2 using expression value.toNumber()"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "SEQN",
+    "newColumnName": "respondent_seq_no",
+    "description": "Rename column SEQN to respondent_seq_no"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "RIAGENDR",
+    "newColumnName": "gender",
+    "description": "Rename column RIAGENDR to gender"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "RIDAGEYR",
+    "newColumnName": "age",
+    "description": "Rename column RIDAGEYR to age"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "DMDMARTL",
+    "newColumnName": "marital_status",
+    "description": "Rename column DMDMARTL to marital_status"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "DMDBORN4",
+    "newColumnName": "birth_country",
+    "description": "Rename column DMDBORN4 to birth_country"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "DMDEDUC3",
+    "newColumnName": "education_level_under_19_yrs",
+    "description": "Rename column DMDEDUC3 to education_level_under_19_yrs"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "DMDEDUC2",
+    "newColumnName": "education_level_adults",
+    "description": "Rename column DMDEDUC2 to education_level_adults"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "DMDHHSIZ",
+    "newColumnName": "household_count",
+    "description": "Rename column DMDHHSIZ to household_count"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "INDHHIN2",
+    "newColumnName": "annual_household_income",
+    "description": "Rename column INDHHIN2 to annual_household_income"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "marital_status",
+    "expression": "grel:if (value==77,null,value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column marital_status using expression grel:if (value==77,null,value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "marital_status",
+    "expression": "grel:if(value==99,null,value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column marital_status using expression grel:if(value==99,null,value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "annual_household_income",
+    "expression": "grel:if(value==77,null,value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column annual_household_income using expression grel:if(value==77,null,value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "annual_household_income",
+    "expression": "grel:if(value==99,null,value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column annual_household_income using expression grel:if(value==99,null,value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "education_level_adults",
+    "expression": "grel:if(value==7 or value==9, null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column education_level_adults using expression grel:if(value==7 or value==9, null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "education_level_under_19_yrs",
+    "expression": "grel:if(value==77 or value==99,null,value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column education_level_under_19_yrs using expression grel:if(value==77 or value==99,null,value)"
+  }
+]
