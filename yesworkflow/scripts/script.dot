@@ -1,0 +1,28 @@
+digraph Workflow {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label=main
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+task_1
+task_2
+edge[fontname=Helvetica]
+task_1 -> task_2 [label=file_2]
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+param_1_input_port [label=""]
+param_2_input_port [label=""]
+param_3_input_port [label=""]
+param_4_input_port [label=""]
+file_1_input_port [label=""]
+}}
+edge[fontname=Helvetica]
+param_1_input_port -> task_1 [label=param_1]
+param_2_input_port -> task_1 [label=param_2]
+file_1_input_port -> task_1 [label=file_1]
+param_3_input_port -> task_2 [label=param_3]
+param_4_input_port -> task_2 [label=param_4]
+}

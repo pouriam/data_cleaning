@@ -1,4 +1,10 @@
 #!/bin/bash
+# 
+# Renders .dot and .png files from an annotated script file, using YesWorkflow.
+# Make sure you build the yesworkflow docker image before running this script.
+# 
+# Usage: ./render.sh <path-to-script>
+# 
 
 input_filepath=$1
 input_abs_filepath=$(realpath $input_filepath)
