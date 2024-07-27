@@ -1,4 +1,4 @@
-CREATE TABLE questionnaire_csv (
+CREATE TABLE questionnaire (
 "respondent_seq_no" INT NOT NULL,
 "diabetes_age_diagnosed" INT NULL,
 "cholestrol_age_diagnosed" INT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE questionnaire_csv (
 "tobacco" INT NULL
 );
 
-INSERT INTO demographic_csv ("respondent_seq_no","diabetes_age_diagnosed","cholestrol_age_diagnosed","overweight","vigorous_activity","moderate_activity","alcoloh","alcoloh_frequency","tobacco") VALUES 
+INSERT INTO questionnaire ("respondent_seq_no","diabetes_age_diagnosed","cholestrol_age_diagnosed","overweight","vigorous_activity","moderate_activity","alcoloh","alcoloh_frequency","tobacco") VALUES 
 (73557,62,62,null,2,2,1,1,1),
 (73558,23,53,null,2,2,1,7,1),
 (73559,57,40,null,2,1,1,0,2),

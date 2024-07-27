@@ -9,7 +9,7 @@ CREATE TABLE demographic (
 "household_count" INT NULL,
 "annual_household_income" INT NULL
 );
-INSERT INTO demographic_csv ("respondent_seq_no","gender","age","birth_country","education_level_under_19_yrs","education_level_adults","marital_status","household_count","annual_household_income") VALUES 
+INSERT INTO demographic("respondent_seq_no","gender","age","birth_country","education_level_under_19_yrs","education_level_adults","marital_status","household_count","annual_household_income") VALUES 
 ( 73557,1,69,1,null,3,4,3,4 ),
 ( 73558,1,54,1,null,3,1,4,7 ),
 ( 73559,1,72,1,null,4,1,2,10 ),

@@ -32,17 +32,17 @@ The file `original_data.sqlite` includes all the CSV files, directly imported to
 
 
 ## Phase 1 Queries
-How many people in the study take insulin?
+How many people in the study take 1 drug, 2 drugs, 3?
 ```
 WITH drugs_by_seqn as (
-    SELECT seqn, GROUP_CONCAT(rxddrug, ',') as drugs FROM medications GROUP BY seqn
+    SELECT seqn, GROUP_CONCAT(rxddrug, ';') as drugs FROM medications GROUP BY seqn
 )
-SELECT COUNT(*) FROM drugs_by_seqn WHERE drugs like '%INSULIN%';
+SELECT * FROM drugs_by_seqn where drugs like '%;%';
 ```
 
 What are the most common drugs taken?
 ```
-SELECT rxddrug, COUNT(*) as count  FROM medications GROUP BY rxddrug order by count desc
+SELECT rxddrug, COUNT(*) as count  FROM medications GROUP BY rxddrug order by count desc limit 100;
 ```
 
 - Although most of these results look decent, you can see some medications that seem irregular. For example, 62 people claim to take the medication "99999". And 6 people take "55555".
