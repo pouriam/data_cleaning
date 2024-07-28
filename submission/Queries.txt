@@ -1,0 +1,90 @@
+Queries for the target use-case:
+
+--------------------------------
+UseCase 1: "What are the most common medications?"
+--------------------------------
+Original Dataset:
+```
+.import demographic.csv demographic --csv
+.import diet.csv diet --csv
+.import examination.csv examination --csv
+.import labs.csv labs --csv
+.import medications.csv medications --csv
+.import questionnaire.csv questionnaire --csv
+
+.mode column
+.headers on
+
+SELECT 
+    rxddrug, 
+    COUNT(*) as count 
+FROM medications 
+GROUP BY rxddrug 
+ORDER BY count DESC 
+LIMIT 10;
+```
+
+Final Dataset:
+```
+.import medications_exploded.csv medications_exploded --csv
+
+.mode column
+.headers on
+
+SELECT 
+    drug_name, 
+    COUNT(*) as count 
+FROM medications_exploded 
+WHERE drug_name != '' 
+GROUP BY drug_name 
+ORDER BY count DESC 
+LIMIT 10;
+```
+
+--------------------------------
+UseCase 2: "At what age do people drink the most alcohol?"
+--------------------------------
+Original Dataset:
+```
+.import demographic.csv demographic --csv
+.import diet.csv diet --csv
+.import examination.csv examination --csv
+.import labs.csv labs --csv
+.import medications.csv medications --csv
+.import questionnaire.csv questionnaire --csv
+
+.mode column
+.headers on
+
+SELECT 
+    demographic.seqn as seqn, 
+    demographic.ridageyr as age, 
+    questionnaire.ALQ120Q AS drinks_per_n, 
+    questionnaire.ALQ120U AS unit 
+FROM demographic
+    left join questionnaire on demographic.seqn = questionnaire.seqn 
+WHERE drinks_per_n IS NOT NULL
+LIMIT 100;
+```
+
+Final Dataset:
+```
+.import alcohol_consumption_by_age.csv alcohol_consumption_by_age --csv
+
+.mode column
+.headers on
+
+SELECT 
+    age, 
+    AVG(drinks_per_year) 
+FROM alcohol_consumption_by_age 
+GROUP BY age 
+ORDER BY CAST(age AS INTEGER) DESC;
+
+SELECT 
+    age, 
+    AVG(drinks_per_year) as dpy 
+FROM alcohol_consumption_by_age  
+GROUP BY age 
+ORDER BY dpy desc;
+```

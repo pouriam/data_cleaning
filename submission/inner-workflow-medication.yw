@@ -1,0 +1,156 @@
+#@begin Linear_OR #@desc Linear OpenRefine Workflow
+#@param oldColumnName:RXDDRUG_1
+#@param oldColumnName:RXDUSE
+#@param newColumnName:respondent_seq_no
+#@param oldColumnName:RXDDRUG_2
+#@param newColumnName:drug_name2
+#@param newColumnName:drug_used
+#@param col-name:RXDCOUNT
+#@param expression:value.toUppercase()
+#@param newColumnName:drug_name3
+#@param oldColumnName:SEQN
+#@param col-name:drug_name1
+#@param expression:value.toNumber()
+#@param oldColumnName:RXDDRUG_4
+#@param expression:grel:if(value==77777,null,value)
+#@param expression:grel:if(value==55555,null,value)
+#@param newColumnName:drugs_count
+#@param expression:grel:if(value==7,null,value)
+#@param col-name:RXDUSE
+#@param newColumnName:drug_name1
+#@param expression:grel:if(value==9,null,value)
+#@param col-name:SEQN
+#@param separator:";"
+#@param newColumnName:drug_name4
+#@param expression:grel:if(value=="INSULUN",_"INSULIN",_value)
+#@param col-name:RXDDRUG
+#@param expression:grel:if(value==99999,null,value)
+#@param oldColumnName:RXDDRUG_3
+#@param oldColumnName:RXDCOUNT
+#@param expression:grel:if(value==7_or_value==9,_null,_value)
+#@param removeOriginalColumn:True
+#@param expression:grel:if_(value.toLowercase()_==_"insulun",_"INSULIN",_value)
+#@in table0
+#@out table21
+#@begin core/text-transform0#@desc Text transform on cells in column SEQN using expression value.toNumber()
+#@param col-name:SEQN
+#@param expression:value.toNumber()
+#@in table0
+#@out table1
+#@end core/text-transform0
+#@begin core/text-transform1#@desc Text transform on cells in column RXDUSE using expression value.toNumber()
+#@param col-name:RXDUSE
+#@param expression:value.toNumber()
+#@in table1
+#@out table2
+#@end core/text-transform1
+#@begin core/text-transform2#@desc Text transform on cells in column RXDCOUNT using expression value.toNumber()
+#@param col-name:RXDCOUNT
+#@param expression:value.toNumber()
+#@in table2
+#@out table3
+#@end core/text-transform2
+#@begin core/text-transform3#@desc Text transform on cells in column RXDUSE using expression grel:if(value==7 or value==9, null, value)
+#@param col-name:RXDUSE
+#@param expression:grel:if(value==7_or_value==9,_null,_value)
+#@in table3
+#@out table4
+#@end core/text-transform3
+#@begin core/text-transform4#@desc Text transform on cells in column RXDUSE using expression grel:if(value==7,null,value)
+#@param col-name:RXDUSE
+#@param expression:grel:if(value==7,null,value)
+#@in table4
+#@out table5
+#@end core/text-transform4
+#@begin core/text-transform5#@desc Text transform on cells in column RXDUSE using expression grel:if(value==9,null,value)
+#@param col-name:RXDUSE
+#@param expression:grel:if(value==9,null,value)
+#@in table5
+#@out table6
+#@end core/text-transform5
+#@begin core/text-transform6#@desc Text transform on cells in column RXDDRUG using expression grel:if(value==\"INSULUN\", \"INSULIN\", value)
+#@param col-name:RXDDRUG
+#@param expression:grel:if(value=="INSULUN",_"INSULIN",_value)
+#@in table6
+#@out table7
+#@end core/text-transform6
+#@begin core/text-transform7#@desc Text transform on cells in column RXDDRUG using expression grel:if (value.toLowercase() == \"insulun\", \"INSULIN\", value)
+#@param col-name:RXDDRUG
+#@param expression:grel:if_(value.toLowercase()_==_"insulun",_"INSULIN",_value)
+#@in table7
+#@out table8
+#@end core/text-transform7
+#@begin core/text-transform8#@desc Text transform on cells in column RXDDRUG using expression value.toUppercase()
+#@param col-name:RXDDRUG
+#@param expression:value.toUppercase()
+#@in table8
+#@out table9
+#@end core/text-transform8
+#@begin core/column-split0#@desc Split column RXDDRUG by separator
+#@param col-name:RXDDRUG
+#@param separator:";"
+#@param removeOriginalColumn:True
+#@in table9
+#@out table10
+#@end core/column-split0
+#@begin core/column-rename0#@desc Rename column RXDDRUG 1 to drug_name1
+#@param oldColumnName:RXDDRUG_1
+#@param newColumnName:drug_name1
+#@in table10
+#@out table11
+#@end core/column-rename0
+#@begin core/column-rename1#@desc Rename column RXDDRUG 2 to drug_name2
+#@param oldColumnName:RXDDRUG_2
+#@param newColumnName:drug_name2
+#@in table11
+#@out table12
+#@end core/column-rename1
+#@begin core/column-rename2#@desc Rename column RXDDRUG 3 to drug_name3
+#@param oldColumnName:RXDDRUG_3
+#@param newColumnName:drug_name3
+#@in table12
+#@out table13
+#@end core/column-rename2
+#@begin core/column-rename3#@desc Rename column RXDDRUG 4 to drug_name4
+#@param oldColumnName:RXDDRUG_4
+#@param newColumnName:drug_name4
+#@in table13
+#@out table14
+#@end core/column-rename3
+#@begin core/column-rename4#@desc Rename column RXDCOUNT to drugs_count
+#@param oldColumnName:RXDCOUNT
+#@param newColumnName:drugs_count
+#@in table14
+#@out table15
+#@end core/column-rename4
+#@begin core/column-rename5#@desc Rename column SEQN to respondent_seq_no
+#@param oldColumnName:SEQN
+#@param newColumnName:respondent_seq_no
+#@in table15
+#@out table16
+#@end core/column-rename5
+#@begin core/column-rename6#@desc Rename column RXDUSE to drug_used
+#@param oldColumnName:RXDUSE
+#@param newColumnName:drug_used
+#@in table16
+#@out table17
+#@end core/column-rename6
+#@begin core/text-transform9#@desc Text transform on cells in column drug_name1 using expression grel:if(value==99999,null,value)
+#@param col-name:drug_name1
+#@param expression:grel:if(value==99999,null,value)
+#@in table17
+#@out table18
+#@end core/text-transform9
+#@begin core/text-transform10#@desc Text transform on cells in column drug_name1 using expression grel:if(value==77777,null,value)
+#@param col-name:drug_name1
+#@param expression:grel:if(value==77777,null,value)
+#@in table18
+#@out table19
+#@end core/text-transform10
+#@begin core/text-transform11#@desc Text transform on cells in column drug_name1 using expression grel:if(value==55555,null,value)
+#@param col-name:drug_name1
+#@param expression:grel:if(value==55555,null,value)
+#@in table19
+#@out table20
+#@end core/text-transform11
+#@end Linear_OR

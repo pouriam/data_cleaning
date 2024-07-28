@@ -1,0 +1,100 @@
+digraph Workflow {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label=NHANES_Data_Cleaning
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+OpenRefine
+Sqlite3_Original
+Sqlite3_Clean
+"medications_etl.py"
+"alcohol_consumption_etl.py"
+"icvs.py"
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+original_data_sqlite [label="file:original-data/original_data.sqlite"]
+clean_data_sqlite [label="file:clean-data/clean_data.sqlite"]
+alcohol_consumption_by_age [label="file:scripts/alcohol_consumption_by_age.csv"]
+medications_exploded [label="file:scripts/medications_exploded.csv"]
+icv_report
+"demographic.csv" [label="file:original-data/demographic.csv"]
+"diet.csv" [label="file:original-data/diet.csv"]
+"examination.csv" [label="file:original-data/examination.csv"]
+"labs.csv" [label="file:original-data/labs.csv"]
+"medications.csv" [label="file:original-data/medications.csv"]
+"questionnaire.csv" [label="file:original-data/questionnaire.csv"]
+demographic_sql_cleaned [label="file:clean-data/demographic.sql"]
+diet_sql_cleaned [label="file:clean-data/diet.sql"]
+examination_sql_cleaned [label="file:clean-data/examination.sql"]
+labs_sql_cleaned [label="file:clean-data/labs.sql"]
+medications_sql_cleaned [label="file:clean-data/medications.sql"]
+questionnaire_sql_cleaned [label="file:clean-data/questionnaire.sql"]
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+OpenRefine -> demographic_sql_cleaned
+OpenRefine -> diet_sql_cleaned
+OpenRefine -> examination_sql_cleaned
+OpenRefine -> labs_sql_cleaned
+OpenRefine -> medications_sql_cleaned
+OpenRefine -> questionnaire_sql_cleaned
+"demographic.csv" -> OpenRefine
+"diet.csv" -> OpenRefine
+"examination.csv" -> OpenRefine
+"labs.csv" -> OpenRefine
+"medications.csv" -> OpenRefine
+"questionnaire.csv" -> OpenRefine
+Sqlite3_Original -> original_data_sqlite
+"demographic.csv" -> Sqlite3_Original
+"diet.csv" -> Sqlite3_Original
+"examination.csv" -> Sqlite3_Original
+"labs.csv" -> Sqlite3_Original
+"medications.csv" -> Sqlite3_Original
+"questionnaire.csv" -> Sqlite3_Original
+Sqlite3_Clean -> clean_data_sqlite
+demographic_sql_cleaned -> Sqlite3_Clean
+diet_sql_cleaned -> Sqlite3_Clean
+examination_sql_cleaned -> Sqlite3_Clean
+labs_sql_cleaned -> Sqlite3_Clean
+medications_sql_cleaned -> Sqlite3_Clean
+questionnaire_sql_cleaned -> Sqlite3_Clean
+"medications_etl.py" -> medications_exploded
+clean_data_sqlite -> "medications_etl.py"
+"alcohol_consumption_etl.py" -> alcohol_consumption_by_age
+clean_data_sqlite -> "alcohol_consumption_etl.py"
+"icvs.py" -> icv_report
+"medications.csv" -> "icvs.py"
+"demographic.csv" -> "icvs.py"
+"questionnaire.csv" -> "icvs.py"
+medications_exploded -> "icvs.py"
+alcohol_consumption_by_age -> "icvs.py"
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+"demographic.csv_input_port" [label=""]
+"diet.csv_input_port" [label=""]
+"examination.csv_input_port" [label=""]
+"labs.csv_input_port" [label=""]
+"medications.csv_input_port" [label=""]
+"questionnaire.csv_input_port" [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+original_data_sqlite_output_port [label=""]
+clean_data_sqlite_output_port [label=""]
+alcohol_consumption_by_age_output_port [label=""]
+medications_exploded_output_port [label=""]
+icv_report_output_port [label=""]
+}}
+"demographic.csv_input_port" -> "demographic.csv"
+"diet.csv_input_port" -> "diet.csv"
+"examination.csv_input_port" -> "examination.csv"
+"labs.csv_input_port" -> "labs.csv"
+"medications.csv_input_port" -> "medications.csv"
+"questionnaire.csv_input_port" -> "questionnaire.csv"
+original_data_sqlite -> original_data_sqlite_output_port
+clean_data_sqlite -> clean_data_sqlite_output_port
+alcohol_consumption_by_age -> alcohol_consumption_by_age_output_port
+medications_exploded -> medications_exploded_output_port
+icv_report -> icv_report_output_port
+}
